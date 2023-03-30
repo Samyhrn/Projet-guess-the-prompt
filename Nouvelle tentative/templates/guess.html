@@ -3,6 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Guess the Sentence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        label {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: .5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-bottom: 2px solid #333;
+            margin-bottom: 1rem;
+            width: 20rem;
+            text-align: center;
+        }
+
+        button[type="submit"] {
+            padding: .5rem 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: .5rem;
+            background-color: #333;
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
     <h1>Guess the Sentence</h1>

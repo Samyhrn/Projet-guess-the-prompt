@@ -54,9 +54,11 @@
     </style>
 </head>
 <body>
-    <h1>Generated Image</h1>
-    <img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image">
-    <p>The image was generated from the sentence "{{ text_prompt }}"</p>
-    <a href="/">Generate another image</a>
+    <h1>Text to Image Generator</h1>
+    <form action="/" method="post">
+        <label for="text-prompt">Enter a sentence:</label>
+        <input type="text" id="text-prompt" name="text_prompt">
+        <button type="submit">Generate Image</button>
+    </form>
 </body>
 </html>
