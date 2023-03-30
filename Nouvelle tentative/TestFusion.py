@@ -54,33 +54,34 @@ def generate_image():
     data = response.json()
 
     for i, image in enumerate(data["artifacts"]):
-        with open(f"./out/v1_txt2img_{i}.png", "wb") as f:
+        with open (f"Nouvelle tentative//static//image.png", "wb") as f:
             f.write(base64.b64decode(image["base64"]))
 
-    return render_template('result.html', text_prompt=text_prompt)
+    return render_template('guess.html', text_to_guess=text_prompt,trial_number=0,percentage=0)
+
+@app.route('/guess/<prompt>/<trial_number>')
+def init_guess(prompt,trial_number):
+    print("On est dans guess en get")
+    return render_template('guess.html', text_to_guess=prompt,trial_number=trial_number,percentage=0)
 
 
-@app.route('/guess')
+#@app.route('/guess/<trials_number>/<prompt>', methods=['GET'])
+@app.route('/guess', methods=['POST'])
 def guess():
-    text_prompt = request.args.get('text_prompt')
-    remaining_trials = 3
-    doc2 = text_prompt
+    trials_number = int(request.form['trial_number'])
+    if trials_number >= 3:
+        return render_template('lose.html', original_sentence=text_to_guess)
+    trials_number += 1
+    text_to_guess= request.form['text_to_guess']#prompt
+    similarity = 0
+    text_to_guess_index = nlp(text_to_guess)
+    text_guessing = request.form['text_prompt']
+    text_guessing_index = nlp(text_guessing)
+    similarity = text_to_guess_index.similarity(text_guessing_index) 
+    if similarity > 0.98:
+        return render_template('win.html', original_sentence=text_to_guess)
+    return render_template('guess.html',text_to_guess=text_to_guess, trial_number=trials_number,percentage=similarity*100)
 
-    while remaining_trials > 0:
-        doc1 = request.args.get('doc1')
-        doc1 = nlp(doc1)
-        doc2 = nlp(doc2)
-        similarity = doc1.similarity(doc2)
-
-        percentage = similarity * 100
-        if similarity > 0.9:
-            return render_template('win.html', original_sentence=doc2)
-        else:
-            remaining_trials -= 1
-            if remaining_trials == 0:
-                return render_template('lose.html', original_sentence=doc2)
-            else:
-                return render_template('guess.html', remaining_trials=remaining_trials, percentage=percentage)
             
 
 if __name__ == '__main__':

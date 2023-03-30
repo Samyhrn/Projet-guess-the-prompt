@@ -62,12 +62,15 @@
 </head>
 <body>
     <h1>Guess the Sentence</h1>
-    <p>You have {{ remaining_trials }} remaining trials.</p>
-    <form action="/guess" method="get">
-        <label for="doc1">Enter a sentence:</label>
-        <input type="text" id="doc1" name="doc1">
-        <input type="hidden" name="text_prompt" value="{{ text_prompt }}">
+    <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"> </p>
+    <p>You have {{ remaining_trials }} / 3 trials.</p>
+    <form action="/guess" method="post">
+        <label for="text_to_guess">Enter a sentence:</label>
+        <input type="hidden" id="text_to_guess" name="text_to_guess" value="{{text_to_guess}}">
+        <input type="hidden" id="trial_number" name="trial_number" value="{{trial_number}}" /> 
+        <input type="text" name="text_prompt" >
         <button type="submit">Check</button>
+      
     </form>
     <p>Current similarity is {{ percentage }}%</p>
 </body>

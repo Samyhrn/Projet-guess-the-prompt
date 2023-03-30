@@ -58,5 +58,7 @@
     <img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image">
     <p>The image was generated from the sentence "{{ text_prompt }}"</p>
     <a href="/">Generate another image</a>
+    <!--a button to redirect to guess.html-->
+    <button type="button" onclick="window.location.href='/guess/{{ text_prompt }}/0'">Guess</button>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guessing Game</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You Lose!</h1>
+    <p>Sorry, you have exceeded the maximum number of guesses.</p>
+    <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"></p>
+    <p>The sentence you were trying to guess was: "{{ original_sentence }}"</p>
+  </body>
+</html>

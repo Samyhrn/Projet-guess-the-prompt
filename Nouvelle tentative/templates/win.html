@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guessing Game</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>You Win!</h1>
+    <p>Congratulations, you have successfully guessed the sentence.</p>
+    <p>The sentence you guessed was: "{{ original_sentence }}"</p>
+    <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"></p>
+  </body>
+</html>
