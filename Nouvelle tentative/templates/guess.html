@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Sentence</title>
+</head>
+<body>
+    <h1>Guess the Sentence</h1>
+    <p>You have {{ remaining_trials }} remaining trials.</p>
+    <form action="/guess" method="get">
+        <label for="doc1">Enter a sentence:</label>
+        <input type="text" id="doc1" name="doc1">
+        <input type="hidden" name="text_prompt" value="{{ text_prompt }}">
+        <button type="submit">Check</button>
+    </form>
+    <p>Current similarity is {{ percentage }}%</p>
+</body>
+</html>

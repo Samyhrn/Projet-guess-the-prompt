@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text to Image Generator</title>
+</head>
+<body>
+    <h1>Generated Image</h1>
+    <img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image">
+    <p>The image was generated from the sentence "{{ text_prompt }}"</p>
+    <a href="/">Generate another image</a>
+</body>
+</html>
