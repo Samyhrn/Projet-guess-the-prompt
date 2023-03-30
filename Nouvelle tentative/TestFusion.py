@@ -1,4 +1,3 @@
-%pip install flask
 from flask import Flask, render_template, request
 import base64
 import os
@@ -82,3 +81,9 @@ def guess():
                 return render_template('lose.html', original_sentence=doc2)
             else:
                 return render_template('guess.html', remaining_trials=remaining_trials, percentage=percentage)
+            
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
