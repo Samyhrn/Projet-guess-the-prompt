@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Guessing Game</title>
+    <title>Guess The Prompt!</title>
     <style>
       body {
         text-align: center;
@@ -11,9 +11,31 @@
       h1 {
         font-size: 3em;
         margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out forwards;
+      }
+      @keyframes fadeIn{
+        from{
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
       }
       p {
         font-size: 1.5em;
+      }
+      a:hover{
+        color: #7b69ff;
+        animation:pulse O.5s infinite alternate;
+      }
+      @keyframes pulse{
+        from{
+          transform: scale(1);
+        }
+        to{
+          transform: scale(1.1);
+        }
       }
     </style>
   </head>
@@ -22,5 +44,7 @@
     <p>Sorry, you have exceeded the maximum number of guesses.</p>
     <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"></p>
     <p>The sentence you were trying to guess was: "{{ original_sentence }}"</p>
+    <!--a link to go back to index page-->
+    <a href="/">Play again!</a>
   </body>
 </html>

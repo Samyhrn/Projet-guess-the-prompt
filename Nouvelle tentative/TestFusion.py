@@ -68,11 +68,12 @@ def init_guess(prompt,trial_number):
 #@app.route('/guess/<trials_number>/<prompt>', methods=['GET'])
 @app.route('/guess', methods=['POST'])
 def guess():
+    trials_number = 1
+    text_to_guess= request.form['text_to_guess']#prompt
     trials_number = int(request.form['trial_number'])
     if trials_number >= 3:
         return render_template('lose.html', original_sentence=text_to_guess)
     trials_number += 1
-    text_to_guess= request.form['text_to_guess']#prompt
     similarity = 0
     text_to_guess_index = nlp(text_to_guess)
     text_guessing = request.form['text_prompt']

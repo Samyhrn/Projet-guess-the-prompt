@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Text to Image Generator</title>
+    <title>Guess The Prompt!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +15,20 @@
             text-align: center;
             font-size: 2.5rem;
             margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
 
         form {
             display: flex;
@@ -53,12 +67,14 @@
         }
     </style>
 </head>
+
 <body>
-    <h1>Text to Image Generator</h1>
+    <h1>Step 1: Generate an Image to Guess</h1>
     <form action="/" method="post">
         <label for="text-prompt">Enter a sentence:</label>
         <input type="text" id="text-prompt" name="text_prompt">
         <button type="submit">Generate Image</button>
     </form>
 </body>
+
 </html>

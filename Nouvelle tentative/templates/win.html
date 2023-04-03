@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Guessing Game</title>
+    <title>Guess The Prompt!</title>
     <style>
       body {
         text-align: center;
@@ -11,10 +11,35 @@
       h1 {
         font-size: 3em;
         margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out forwards;
+      }
+      @keyframes fadeIn{
+        from{
+          opacity: 0;
+        }
+        to{
+          opacity: 1;
+        }
       }
       p {
         font-size: 1.5em;
       }
+
+      a:hover{
+        color: #7b69ff;
+        animation:pulse O.5s infinite alternate;
+      }
+      @keyframes pulse{
+        from{
+          transform: scale(1);
+        }
+        to{
+          transform: scale(1.1);
+        }
+      }
+
+
     </style>
   </head>
   <body>
@@ -22,5 +47,7 @@
     <p>Congratulations, you have successfully guessed the sentence.</p>
     <p>The sentence you guessed was: "{{ original_sentence }}"</p>
     <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"></p>
+    <!--a link to go back to index page-->
+    <a href="/">Play again!</a>
   </body>
 </html>

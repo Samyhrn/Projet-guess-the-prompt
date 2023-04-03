@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Guess the Sentence</title>
+    <title>Guess The Prompt!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +15,20 @@
             text-align: center;
             font-size: 2.5rem;
             margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
 
         p {
             text-align: center;
@@ -60,18 +74,20 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Guess the Sentence</h1>
     <p><img src="{{ url_for('static', filename='image.png') }}" alt="Generated Image"> </p>
-    <p>You have {{ remaining_trials }} / 3 trials.</p>
+    <p>You have {{ remaining_trials }} / 3 try(s) left.</p>
     <form action="/guess" method="post">
         <label for="text_to_guess">Enter a sentence:</label>
-        <input type="hidden" id="text_to_guess" name="text_to_guess" value="{{text_to_guess}}">
-        <input type="hidden" id="trial_number" name="trial_number" value="{{trial_number}}" /> 
-        <input type="text" name="text_prompt" >
+        <input type="hidden" id="text_to_guess" name="text_to_guess" value="{{text_to_guess}}" />
+        <input type="hidden" id="trial_number" name="trial_number" value="{{trial_number}}" />
+        <input type="text" name="text_prompt">
         <button type="submit">Check</button>
-      
+
     </form>
     <p>Current similarity is {{ percentage }}%</p>
 </body>
+
 </html>
