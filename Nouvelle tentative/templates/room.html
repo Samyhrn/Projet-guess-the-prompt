@@ -1,0 +1,12 @@
+<!-- templates/room.html -->
+<h1>Room: {{ room.name }}</h1>
+<h2>Participants :</h2>
+<ul>
+{% for participant in room.participants %}
+    <li>{{ participant.username }}</li>
+{% endfor %}
+</ul>
+<form action="{{ url_for('leave_room', room_id=room.id) }}" method="post">
+    <button type="submit">Quitter</button>
+</form>
+<!-- Ajouter un bouton pour démarrer la partie ici -->

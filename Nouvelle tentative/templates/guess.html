@@ -2,77 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta charset="UTF-8">
     <title>Guess The Prompt!</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #FFF;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-top: 2rem;
-            opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-        p {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        label {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-
-        input[type="text"] {
-            padding: .5rem;
-            font-size: 1.2rem;
-            border: none;
-            border-bottom: 2px solid #333;
-            margin-bottom: 1rem;
-            width: 20rem;
-            text-align: center;
-        }
-
-        button[type="submit"] {
-            padding: .5rem 1rem;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: .5rem;
-            background-color: #333;
-            color: #FFF;
-            cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #555;
-        }
-    </style>
 </head>
 
 <body>
