@@ -1,5 +1,20 @@
-<!-- templates/dashboard.html -->
-<h1>Bienvenue sur Guess the Prompt!</h1>
-<a href="/create_room">Créer une Room</a>
-<br>
-<a href="/join_room">Rejoindre une Room</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Bienvenue sur Guess the Prompt!</h1>
+        <a href="/create_room" class="btn btn-primary mt-3">Créer une Room</a>
+        <a href="/join_room" class="btn btn-secondary mt-3">Rejoindre une Room</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

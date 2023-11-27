@@ -1,12 +1,30 @@
-<!-- templates/room.html -->
-<h1>Room: {{ room.name }}</h1>
-<h2>Participants :</h2>
-<ul>
-{% for participant in room.participants %}
-    <li>{{ participant.username }}</li>
-{% endfor %}
-</ul>
-<form action="{{ url_for('leave_room', room_id=room.id) }}" method="post">
-    <button type="submit">Quitter</button>
-</form>
-<!-- Ajouter un bouton pour démarrer la partie ici -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room: {{ room.name }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h1>Room: {{ room.name }}</h1>
+        <h2>Participants :</h2>
+        <ul class="list-group">
+            {% for participant in room.participants %}
+            <li class="list-group-item">{{ participant.username }}</li>
+            {% endfor %}
+        </ul>
+        <form action="{{ url_for('game_bp.leave_room', room_id=room.id) }}" method="post" class="mt-3">
+            <button type="submit" class="btn btn-danger">Quitter</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

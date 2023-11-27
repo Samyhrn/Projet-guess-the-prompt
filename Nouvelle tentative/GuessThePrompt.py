@@ -31,7 +31,7 @@ nlp = spacy.load("en_core_web_md")
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('register.html')
 
 
 @app.route('/', methods=['POST'])

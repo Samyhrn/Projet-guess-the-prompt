@@ -1,7 +1,33 @@
-<!-- templates/create_room.html -->
-<form action="/create_room" method="post">
-    <input type="text" name="room_name" placeholder="Nom de la room" required>
-    <input type="password" name="room_password" placeholder="Mot de passe de la room" required>
-    <input type="number" name="players_limit" placeholder="Limite de joueurs" required>
-    <button type="submit">Créer Room</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une Room</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Créer une Room</h2>
+        <form action="/create_room" method="post" class="mt-4">
+            <div class="form-group">
+                <label for="room_name">Nom de la room</label>
+                <input type="text" class="form-control" name="room_name" id="room_name" required>
+            </div>
+            <div class="form-group">
+                <label for="room_password">Mot de passe de la room</label>
+                <input type="password" class="form-control" name="room_password" id="room_password" required>
+            </div>
+            <div class="form-group">
+                <label for="players_limit">Limite de joueurs</label>
+                <input type="number" class="form-control" name="players_limit" id="players_limit" required>
+            </div>
+            <button type="submit" class="btn btn-success">Créer Room</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
